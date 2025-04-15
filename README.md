@@ -204,3 +204,20 @@ nome = input()
 
 print('Seja bem-vindo(a) %s' % nome)
 ```
+
+
+## 🦾 Estruturas condicionais
+
+### IF | ELSE | ELIF
+
+```python
+
+idade = 6
+
+if idade < 18:
+  print('Menor de idade')
+elif idade == 18:
+  print('Tem 18 anos')
+else:
+  print('Maior de idade')
+````
