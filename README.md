@@ -469,3 +469,112 @@ print(num3)
 ```
 
 ---
+
+
+# 🔐 Tuplas (`tuple`) em Python
+
+- São representadas por parênteses ()
+- São imutáveis (não podem ser alteradas após a criação)
+
+---
+
+## 🧱 Criando uma Tupla
+
+```python
+frutas = ("maçã", "banana", "laranja")
+print(frutas)
+```
+
+### Tupla com um único item
+
+```python
+# Note a vírgula no final
+sozinha = ("maçã",)
+```
+
+---
+
+## 📌 Acessando Elementos
+
+```python
+print(frutas[0])   # Primeiro item
+print(frutas[-1])  # Último item
+```
+
+---
+
+## 🔄 Iterando sobre uma Tupla
+
+```python
+for fruta in frutas:
+    print(fruta)
+```
+
+---
+
+## 📏 Tamanho da Tupla
+
+```python
+print(len(frutas))
+```
+
+---
+
+## ❌ Tuplas são Imutáveis
+
+```python
+# Isso causará erro!
+frutas[0] = "uva"
+```
+
+Se você precisa modificar uma tupla, deve convertê-la para lista, modificar, e reconverter:
+
+```python
+lista_frutas = list(frutas)
+lista_frutas[0] = "uva"
+frutas = tuple(lista_frutas)
+```
+
+---
+
+## 🔍 Verificando Existência de Item
+
+```python
+if "banana" in frutas:
+    print("Tem banana!")
+```
+
+---
+
+## 📋 Métodos de Tupla
+
+```python
+print(frutas.count("maçã"))   # Conta quantas vezes aparece
+print(frutas.index("banana")) # Retorna o índice da primeira ocorrência
+```
+
+---
+
+## 🧪 Desempacotamento de Tuplas
+
+```python
+pessoa = ("João", 30, "Desenvolvedor")
+nome, idade, profissao = pessoa
+
+print(nome)
+print(idade)
+print(profissao)
+```
+
+---
+
+## 🔁 Juntando Tuplas
+
+```python
+tupla1 = (1, 2)
+tupla2 = (3, 4)
+
+tupla3 = tupla1 + tupla2
+```
+
+---
