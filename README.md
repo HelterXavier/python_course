@@ -221,3 +221,251 @@ elif idade == 18:
 else:
   print('Maior de idade')
 ````
+
+## 🔁 Estruturas de repetição
+
+Python oferece duas estruturas de repetição: `for` e `while`.
+
+---
+
+### 🔂 `for` - Laço de Repetição com Iteração
+
+utilizado para iterar sobre uma sequência (como listas, strings, tuplas, etc).
+
+#### Exemplo: Percorrendo uma lista
+
+```python
+frutas = ["maçã", "banana", "laranja"]
+for fruta in frutas:
+    print(fruta)
+```
+
+#### Exemplo: Utilizando `range`
+
+```python
+# Imprime de 0 a 4
+for i in range(5):
+    print(i)
+```
+
+---
+
+#### Exemplo: Utilizando `while`
+
+ `while` executa o bloco de código **enquanto** a condição for verdadeira.
+
+#### Exemplo: Contando até 5
+
+```python
+contador = 0
+while contador <= 5:
+    print(contador)
+    contador += 1
+```
+
+⚠️ **Cuidado com loops infinitos!** Certifique-se de que a condição em algum momento será falsa.
+
+---
+
+### ⏹️ `break` - Interrompe o loop
+
+O `break` é utilizado para sair de um laço antes que ele termine naturalmente.
+
+```python
+for numero in range(10):
+    if numero == 5:
+        break
+    print(numero)
+```
+
+---
+
+### 🔃 `continue` - Pula para a próxima iteração
+
+O `continue` pula o restante do código no loop e vai direto para a próxima iteração.
+
+```python
+for numero in range(5):
+    if numero == 2:
+        continue
+    print(numero)
+```
+
+---
+
+### 🔄 `else` com `for` ou `while`
+
+O `else` é executado quando o loop termina **sem ser interrompido por um `break`**.
+
+```python
+for i in range(3):
+    print(i)
+else:
+    print("Loop finalizado normalmente.")
+```
+
+---
+
+## 🧪 Exemplo prático: Verificar se número é primo
+
+```python
+numero = 7
+
+for i in range(2, numero):
+    if numero % i == 0:
+        print(f"{numero} não é primo")
+        break
+else:
+    print(f"{numero} é primo")
+```
+
+---
+
+
+
+# 📚 Listas (`list`) em Python
+
+Listas são coleções ordenadas e mutáveis usadas para armazenar itens em uma única variável.
+
+---
+
+## 🧱 Criando uma Lista
+
+```python
+frutas = ["maçã", "banana", "laranja"]
+print(frutas)
+```
+
+---
+
+## 📌 Acessando Elementos
+
+```python
+print(frutas[0])  # Primeiro item
+print(frutas[-1]) # Último item
+```
+
+---
+
+## 🔄 Iterando sobre uma Lista
+
+```python
+for fruta in frutas:
+    print(fruta)
+```
+
+---
+
+## ✏️ Modificando Elementos
+
+```python
+frutas[1] = "uva"
+print(frutas)
+```
+
+---
+
+## ➕ Adicionando Elementos
+
+```python
+# Adiciona ao final
+frutas.append("abacaxi")
+
+# Insere em posição específica
+frutas.insert(1, "morango")
+```
+
+---
+
+## ❌ Removendo Elementos
+
+```python
+# Remove por valor
+frutas.remove("maçã")
+
+# Remove o último item
+frutas.pop()
+
+# Remove item por índice
+del frutas[0]
+
+# Remove todos os itens
+frutas.clear()
+```
+
+---
+
+## 🔍 Verificando Existência de Item
+
+```python
+if "banana" in frutas:
+    print("Tem banana!")
+```
+
+---
+
+## 📏 Tamanho da Lista
+
+```python
+print(len(frutas))
+```
+
+---
+
+## 🔁 Juntando Listas
+
+```python
+lista1 = [1, 2, 3]
+lista2 = [4, 5, 6]
+
+junta = lista1 + lista2
+```
+
+---
+
+## 🔄 Compreensão de Lista (List Comprehension)
+
+```python
+quadrados = [x**2 for x in range(6)]
+print(quadrados)
+```
+
+---
+
+## 🧪 Métodos Úteis
+
+```python
+numeros = [5, 3, 8, 1, 9]
+
+numeros.sort()       # Ordena crescente
+numeros.reverse()    # Inverte ordem
+print(numeros.index(8))  # Índice do elemento
+print(numeros.count(3))  # Quantidade de vezes que o elemento aparece
+```
+
+---
+
+## 📋 Cópia de Lista
+
+```python
+lista_original = [1, 2, 3]
+copia = lista_original.copy()
+```
+
+---
+
+---
+
+## 📦 Desempacotamento de listas
+
+```python
+lista = [1, 2, 3]
+
+num1, num2, num3 = lista
+
+print(num1)
+print(num2)
+print(num3)
+```
+
+---
