@@ -578,3 +578,121 @@ tupla3 = tupla1 + tupla2
 ```
 
 ---
+
+
+
+# 📖 Dicionários (`dict`) em Python
+
+- Dicionários são coleções de pares **chave:valor**
+- Dicionários são mutáveis
+- Dicionários são indexados por chaves, não por números
+- Dicionários são representados por chaves {}
+
+---
+
+## 🧱 Criando um Dicionário
+
+```python
+pessoa = {
+    "nome": "João",
+    "idade": 30,
+    "profissao": "Desenvolvedor"
+}
+print(pessoa)
+```
+
+---
+
+## 📌 Acessando Valores
+
+```python
+print(pessoa["nome"])
+print(pessoa.get("idade"))  # Forma segura (não lança erro se a chave não existir)
+```
+
+---
+
+## ✏️ Modificando Valores
+
+```python
+pessoa["idade"] = 31
+```
+
+---
+
+## ➕ Adicionando Novos Pares
+
+```python
+pessoa["cidade"] = "São Paulo"
+```
+
+---
+
+## ❌ Removendo Itens
+
+```python
+pessoa.pop("profissao")     # Remove a chave e retorna o valor
+del pessoa["idade"]         # Remove a chave diretamente
+pessoa.clear()              # Limpa todo o dicionário
+```
+
+---
+
+## 🔁 Iterando em Dicionários
+
+```python
+# Pelas chaves
+for chave in pessoa:
+    print(chave, pessoa[chave])
+
+# Pelos valores
+for valor in pessoa.values():
+    print(valor)
+
+# Pelos itens (chave e valor)
+for chave, valor in pessoa.items():
+    print(f"{chave}: {valor}")
+```
+
+---
+
+## 🔍 Verificando Existência de Chave
+
+```python
+if "nome" in pessoa:
+    print("Chave 'nome' existe")
+```
+
+---
+
+## 🧪 Métodos Úteis
+
+```python
+keys = pessoa.keys()        # Retorna todas as chaves
+values = pessoa.values()    # Retorna todos os valores
+items = pessoa.items()      # Retorna todos os pares (chave, valor)
+```
+
+---
+
+## 🧬 Cópia de Dicionário
+
+```python
+copia = pessoa.copy()
+```
+
+---
+
+## 🧱 Dicionário Aninhado
+
+```python
+usuarios = {
+    "usuario1": {"nome": "Ana", "idade": 25},
+    "usuario2": {"nome": "Carlos", "idade": 40}
+}
+print(usuarios["usuario1"]["nome"])
+```
+
+---
+
+> 💡 *Dicionários são ideais para armazenar dados estruturados, como registros, perfis, e configurações. São largamente utilizados em APIs, banco de dados e manipulação de JSON.*
