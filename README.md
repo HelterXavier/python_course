@@ -1098,6 +1098,100 @@ apresentar_usuario("Lucas", 30, "Futebol", "Cinema", cidade="Recife", ativo=True
 
 ---
 
-# 🚀 Dica final
 
-Funções ajudam a manter seu código organizado, reutilizável e limpo. Saber trabalhar com `*args` e `**kwargs` dá mais flexibilidade às suas funções.
+
+
+
+# 🐍 List Comprehension em Python
+
+List Comprehension é uma forma concisa e elegante de criar listas em Python. Ela permite escrever loops e condições dentro de uma única linha.
+
+---
+
+## ✅ Sintaxe Básica
+
+```python
+nova_lista = [expressão for item in iterável]
+```
+
+### Exemplo:
+```python
+numeros = [1, 2, 3, 4, 5]
+quadrados = [n**2 for n in numeros]
+print(quadrados)  # [1, 4, 9, 16, 25]
+```
+
+---
+
+## 🔁 Com Condição
+
+```python
+nova_lista = [expressão for item in iterável if condição]
+```
+
+### Exemplo:
+```python
+pares = [n for n in range(10) if n % 2 == 0]
+print(pares)  # [0, 2, 4, 6, 8]
+```
+
+---
+
+## ⚡ Com `if` e `else`
+
+```python
+nova_lista = [valor1 if condição else valor2 for item in iterável]
+```
+
+### Exemplo:
+```python
+resultado = ["par" if n % 2 == 0 else "ímpar" for n in range(5)]
+print(resultado)  # ['par', 'ímpar', 'par', 'ímpar', 'par']
+```
+
+---
+
+## 💡 Compreensões Aninhadas
+
+Você pode usar list comprehension dentro de outra.
+
+### Exemplo: Matriz transposta
+
+```python
+matriz = [[1, 2], [3, 4], [5, 6]]
+transposta = [[linha[i] for linha in matriz] for i in range(2)]
+print(transposta)  # [[1, 3, 5], [2, 4, 6]]
+```
+
+---
+
+## 📌 Vantagens
+
+- Código mais limpo e legível
+- Reduz a quantidade de linhas
+- Ideal para filtragem e transformação de dados simples
+
+---
+
+## ⚠️ Cuidados
+
+- Evite criar compreensões muito complexas (com muitos `if`, `else`, aninhamentos)
+- Para lógicas mais elaboradas, prefira `for` tradicional
+
+---
+
+## 🧪 Exemplos variados
+
+### Gerar lista com caracteres de uma string:
+```python
+caracteres = [letra for letra in "Python"]
+print(caracteres)  # ['P', 'y', 't', 'h', 'o', 'n']
+```
+
+### Criar lista com números ao quadrado e maiores que 10:
+```python
+resultados = [n**2 for n in range(10) if n**2 > 10]
+print(resultados)  # [16, 25, 36, 49, 64, 81]
+```
+
+---
