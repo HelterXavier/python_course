@@ -696,3 +696,255 @@ print(usuarios["usuario1"]["nome"])
 ---
 
 > 💡 *Dicionários são ideais para armazenar dados estruturados, como registros, perfis, e configurações. São largamente utilizados em APIs, banco de dados e manipulação de JSON.*
+
+
+# 🧮 Conjuntos (`set`) em Python
+
+Conjuntos são coleções **não ordenadas** de **elementos únicos**. Muito úteis em operações matemáticas como **união**, **interseção**, **diferença** e **diferença simétrica**.
+
+---
+
+## 📌 Características dos Conjuntos
+
+- Elementos **únicos** (sem duplicatas)
+- **Não ordenados** (sem índice)
+- **Mutáveis** (você pode adicionar e remover elementos)
+- Elementos **imutáveis** (listas, dicionários e outros sets não podem ser membros de um set)
+- Usados para testes de **pertinência** e para **remoção de duplicatas**
+
+---
+
+## 🧱 Criando Conjuntos
+
+```python
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = set({1, 2, 3, 4, 5})
+conjunto3 = set([1, 2, 3, 4, 5])
+conjunto4 = set("12345")
+
+print(conjunto4)  # {'1', '2', '3', '4', '5'}
+```
+
+
+# 📚 Direnças de Coleções em Python: Listas, Tuplas, Dicionários, Conjuntos e Mapas
+
+As principais diferenças entre os tipos de coleções em Python, quando usar cada uma e exemplos práticos de uso.
+
+---
+
+## 📦 1. Listas (`list`)
+
+Listas são coleções **ordenadas** e **mutáveis** que permitem elementos duplicados.
+
+### ✅ Quando usar:
+- Precisa de ordenação
+- Precisa adicionar/remover elementos
+- Permite valores repetidos
+
+### 🔧 Exemplo:
+
+```python
+frutas = ["maçã", "banana", "uva"]
+frutas.append("laranja")
+print(frutas[0])  # 'maçã'
+```
+
+
+## 🔐 2. Tuplas (tuple)
+Tuplas são coleções ordenadas e imutáveis, ideais para dados fixos.
+
+✅ Quando usar:
+- Dados constantes, como coordenadas ou configurações
+- Deseja proteger os dados de alterações
+
+```python
+
+coordenadas = (10.0, 20.5)
+print(coordenadas[1])  # 20.5
+# coordenadas[0] = 15.0  -> ❌ erro
+```
+
+## 📚 3. Dicionários (dict)
+Dicionários armazenam pares chave:valor. As chaves são únicas e os valores acessados via chave.
+
+✅ Quando usar:
+- Precisa associar identificadores a valores
+- Precisa acessar dados por nome
+-
+```python
+pessoa = {"nome": "João", "idade": 30}
+print(pessoa["nome"])  # 'João'
+pessoa["idade"] += 1
+```
+
+## 🧮 4. Conjuntos (set)
+Conjuntos são coleções não ordenadas de elementos únicos. Muito usados para garantir unicidade e fazer operações matemáticas.
+
+✅ Quando usar:
+- Remover duplicatas
+- Verificar se um elemento existe
+- Fazer operações como união e interseção
+
+```python
+numeros = {1, 2, 3, 2, 1}
+print(numeros)  # {1, 2, 3}
+numeros.add(4)
+
+
+# Operações úties
+
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)  # União: {1, 2, 3, 4, 5}
+print(a & b)  # Interseção: {3}
+print(a - b)  # Diferença: {1, 2}
+print(a ^ b)  # Diferença simétrica: {1, 2, 4, 5}
+```
+
+
+## 🗺️ 5. Mapas (map())
+Em Python, map() é uma função que aplica outra função a cada item de uma coleção. Não é uma estrutura como em outras linguagens.
+
+✅ Quando usar:
+- Precisa transformar elementos de forma preguiçosa (lazy)
+- Quer evitar loops explícitos
+
+### 🔧 Exemplo:
+```python
+numeros = [1, 2, 3]
+dobros = list(map(lambda x: x * 2, numeros))
+print(dobros)  # [2, 4, 6]
+```
+
+## 📋 Tabela Resumo
+
+| Tipo   | Ordenado  | Mutável | Duplicatas     | Acesso por     | Uso típico                          |
+|--------|-----------|---------|----------------|----------------|-------------------------------------|
+| list   | ✅         | ✅       | ✅              | Índice         | Listas genéricas                    |
+| tuple  | ✅         | ❌       | ✅              | Índice         | Dados fixos                         |
+| dict   | ✅ (3.7+)  | ✅       | ❌ (chaves)     | Chave          | Mapeamento chave/valor              |
+| set    | ❌         | ✅       | ❌              | Não suportado  | Remoção de duplicatas, conjuntos    |
+| map()  | -         | -       | -              | Iteração       | Transformações funcionais           |
+
+
+
+---
+
+
+# 📦 Módulo `collections` em Python
+
+O módulo `collections` fornece tipos de dados especializados que estendem as funcionalidades das estruturas padrão do Python. Abaixo estão os principais:
+
+---
+
+## 1. `Counter`
+
+- `Counter` é uma subclasse de `dict` que conta a frequência de elementos em uma coleção (geralmente listas ou strings).
+- O `Counter` mostra o número de ocorrencias de cada elemento em uma lista
+
+### ✅ Exemplo:
+
+```python
+from collections import Counter
+
+frutas = ['maçã', 'banana', 'maçã', 'laranja', 'banana', 'maçã']
+contagem = Counter(frutas)
+
+print(contagem)
+# Saída: Counter({'maçã': 3, 'banana': 2, 'laranja': 1})
+```
+
+---
+
+## 2. `defaultdict`
+
+`defaultdict` é como um dicionário normal, mas permite definir um valor padrão para chaves inexistentes, evitando erros de `KeyError`.
+
+### ✅ Exemplo:
+
+```python
+from collections import defaultdict
+
+d = defaultdict(int)
+d['a'] += 1
+d['b'] += 2
+
+print(d)
+# Saída: defaultdict(<class 'int'>, {'a': 1, 'b': 2})
+```
+
+---
+
+## 3. `OrderedDict`
+
+Antes do Python 3.7, os dicionários não mantinham a ordem de inserção. `OrderedDict` resolve isso.
+
+> ⚠️ A partir do Python 3.7+, `dict` já preserva a ordem de inserção, tornando `OrderedDict` menos necessário.
+
+### ✅ Exemplo:
+
+```python
+from collections import OrderedDict
+
+dados = OrderedDict()
+dados['nome'] = 'Maria'
+dados['idade'] = 25
+dados['cidade'] = 'São Paulo'
+
+print(dados)
+```
+
+---
+
+## 4. `namedtuple`
+
+Cria tuplas com campos nomeados, facilitando o acesso e deixando o código mais legível.
+
+### ✅ Exemplo:
+
+```python
+from collections import namedtuple
+
+Pessoa = namedtuple('Pessoa', 'nome idade')
+p1 = Pessoa(nome='João', idade=30)
+
+print(p1.nome)  # João
+print(p1.idade)  # 30
+```
+
+---
+
+## 5. `deque`
+
+É uma fila dupla (double-ended queue), ideal para operações rápidas de inserção e remoção em ambas as extremidades.
+
+### ✅ Exemplo:
+
+```python
+from collections import deque
+
+fila = deque()
+fila.append('a')      # adiciona ao final
+fila.appendleft('b')  # adiciona ao início
+print(fila)
+
+fila.pop()            # remove do final
+fila.popleft()        # remove do início
+```
+
+---
+
+## 📋 Resumo Rápido
+
+| Tipo           | O que faz                                     | Quando usar                         |
+|----------------|-----------------------------------------------|-------------------------------------|
+| `Counter`      | Conta elementos repetidos                     | Frequência em listas ou strings     |
+| `defaultdict`  | Dicionário com valor padrão automático        | Evitar KeyError                     |
+| `OrderedDict`  | Dicionário que mantém ordem de inserção       | Compatibilidade com versões < 3.7   |
+| `namedtuple`   | Tupla com nomes de campos                     | Substituir classes simples          |
+| `deque`        | Fila dupla com alta performance               | Filas e pilhas                      |
+
+---
+
+> 💡 Esses tipos estão no módulo `collections`, então lembre-se de importar com: `from collections import ...`
