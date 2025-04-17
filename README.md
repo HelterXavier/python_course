@@ -948,3 +948,156 @@ fila.popleft()        # remove do início
 ---
 
 > 💡 Esses tipos estão no módulo `collections`, então lembre-se de importar com: `from collections import ...`
+
+
+
+---
+
+
+
+
+# 🐍 Funções em Python — `def`, `*args`, `**kwargs` e Parâmetros
+
+Funções são blocos reutilizáveis de código que executam uma tarefa específica. Em Python, usamos a palavra-chave `def` para definir funções.
+
+- Trexos de codigo que realizam uma tarefa específica
+- Podem receber parâmetros e retornar valores
+- Podem ser reutilizadas em diferentes partes do código
+- Podem ser definidas em módulos e importadas em outros arquivos
+- Podem ser aninhadas (funções dentro de funções)
+- Podem ser decoradas (funções que modificam o comportamento de outras funções)
+- Podem ser geradoras (funções que retornam um iterador)
+- Podem ser assíncronas (funções que permitem execução concorrente)
+- Podem ser lambda (funções anônimas de uma linha)
+- Podem ser de classe (funções que pertencem a uma classe)
+- Podem ser estáticas (funções que não dependem de instância de classe)
+- Podem ser de classe (funções que pertencem a uma classe)
+
+- *ARGS: permite passar um número variável de argumentos posicionais para uma função
+- **KWARGS ou **xis: permite passar um número variável de argumentos nomeados para uma função
+
+---
+
+## ✅ Criando uma função simples
+
+```python
+def saudacao():
+    print("Olá, seja bem-vindo!")
+```
+
+Para chamar a função:
+
+```python
+saudacao()
+```
+
+---
+
+## 📥 Parâmetros e Argumentos
+
+Parâmetros são variáveis definidas na assinatura da função. Argumentos são os valores passados quando chamamos a função.
+
+```python
+def saudacao(nome):
+    print(f"Olá, {nome}!")
+
+saudacao("João")  # Olá, João!
+```
+
+Você pode também definir valores padrão para parâmetros:
+
+```python
+def saudacao(nome="visitante"):
+    print(f"Olá, {nome}!")
+
+saudacao()          # Olá, visitante!
+saudacao("Maria")   # Olá, Maria!
+```
+
+---
+
+## 🌟 `*args` — Argumentos Posicionais Variáveis
+
+`*args` permite passar um número indefinido de argumentos **posicionais** para uma função.
+
+```python
+def somar(*numeros):
+    return sum(numeros)
+
+print(somar(1, 2, 3))        # 6
+print(somar(5, 10, 15, 20))  # 50
+```
+
+> Internamente, `args` é uma tupla.
+
+---
+
+## 🔑 `**kwargs` — Argumentos Nomeados Variáveis
+
+`**kwargs` permite passar um número indefinido de argumentos **nomeados** (chave=valor) para uma função.
+
+```python
+def mostrar_dados(**dados):
+    for chave, valor in dados.items():
+        print(f"{chave}: {valor}")
+
+mostrar_dados(nome="Ana", idade=25, cidade="São Paulo")
+```
+
+> Internamente, `kwargs` é um dicionário.
+
+---
+
+## 💡 Misturando `*args` e `**kwargs`
+
+Você pode usar ambos na mesma função:
+
+```python
+def funcao_tudo(a, b, *args, **kwargs):
+    print(f"a: {a}, b: {b}")
+    print("args:", args)
+    print("kwargs:", kwargs)
+
+funcao_tudo(1, 2, 3, 4, 5, nome="Carlos", ativo=True)
+```
+
+---
+
+## 📌 Ordem dos parâmetros
+
+A ordem correta ao declarar uma função com diferentes tipos de parâmetros é:
+
+```
+(parâmetros normais, *args, parâmetros nomeados com valor padrão, **kwargs)
+```
+
+Exemplo:
+
+```python
+def exemplo(a, b, *args, opcional=0, **kwargs):
+    pass
+```
+
+---
+
+## 🧪 Exemplo prático
+
+```python
+def apresentar_usuario(nome, idade, *hobbies, **informacoes_extra):
+    print(f"Nome: {nome}, Idade: {idade}")
+    print("Hobbies:", hobbies)
+    print("Informações Extras:", informacoes_extra)
+
+apresentar_usuario("Lucas", 30, "Futebol", "Cinema", cidade="Recife", ativo=True)
+```
+
+---
+
+> ✅ Use `*args` quando não souber quantos argumentos posicionais a função receberá.
+> ✅ Use `**kwargs` para capturar argumentos nomeados opcionais.
+
+---
+
+# 🚀 Dica final
+
+Funções ajudam a manter seu código organizado, reutilizável e limpo. Saber trabalhar com `*args` e `**kwargs` dá mais flexibilidade às suas funções.
