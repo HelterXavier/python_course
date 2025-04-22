@@ -1234,4 +1234,3 @@ def soma(x, y):
 - **KeyError** -> Ocorre quando tentamos acessar um dicionário com uma chave que não existe
 - **AttributeError** -> Ocorre quando uma variável não tem um atributo/função
 - **IdentationError** -> Ocorre quando não é respeitado a identação
-- **Error** ->
