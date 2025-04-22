@@ -1224,3 +1224,14 @@ print(soma(3, 5))  # Saída: 8
 def soma(x, y):
     return x + y
 ```
+# 🚨 Erros
+
+- **SyntaxError** -> Ocorre quando o Python encontra um erro de sintaxe.
+- **NameError** -> Ocorre quando uma variavel ou função não foi definida
+- **TypeError** -> Ocorre quando uma função/operação/ação é aplicada a um tipo errado
+- **IndexError** -> Ocorre quando tentamos acessar um elemento em uma lista ou outro tipo de dado indexado utilizando um índice inválido
+- **ValueError** -> Ocorre uma função/operação built-in (integrada) recebe um argumento com tipo correto mas valor inapropriado
+- **KeyError** -> Ocorre quando tentamos acessar um dicionário com uma chave que não existe
+- **AttributeError** -> Ocorre quando uma variável não tem um atributo/função
+- **IdentationError** -> Ocorre quando não é respeitado a identação
+- **Error** ->
