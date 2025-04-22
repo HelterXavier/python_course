@@ -1195,3 +1195,32 @@ print(resultados)  # [16, 25, 36, 49, 64, 81]
 ```
 
 ---
+
+# 🐍 Lambda
+
+Em Python, uma **função lambda** é uma forma **rápida e concisa** de declarar **funções pequenas e simples**, sem precisar usar o `def`.
+
+Ela é conhecida como **função anônima**, porque geralmente não recebe um nome.
+
+
+## Sintaxe
+
+```python
+lambda argumentos: expressão
+```
+
+## Exemplo
+```python
+
+soma = lambda x, y: x + y
+# OU
+def soma(x, y): return x + y
+
+print(soma(3, 5))  # Saída: 8
+```
+
+### Esse exemplo é equivalente a:
+```python
+def soma(x, y):
+    return x + y
+```
