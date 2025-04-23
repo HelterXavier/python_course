@@ -27,3 +27,4 @@ else:
     os.rename('leitura_escrita_em_arquivos/CV.pdf',
               'leitura_escrita_em_arquivos/reprovados/CV.pdf')
     print('Currículo não aprovado')
+
