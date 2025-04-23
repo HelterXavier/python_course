@@ -16,7 +16,7 @@ def forca_tipo(*tipos):
 
 @forca_tipo(str, int)
 def repete_msg(msg, vezes):
-    for vez in range(vezes):
+    for _ in range(vezes):
         print(msg)
 
 
