@@ -1234,3 +1234,247 @@ def soma(x, y):
 - **KeyError** -> Ocorre quando tentamos acessar um dicionário com uma chave que não existe
 - **AttributeError** -> Ocorre quando uma variável não tem um atributo/função
 - **IdentationError** -> Ocorre quando não é respeitado a identação
+
+
+---
+
+# 🧱 Orientação a Objetos (POO) com Python
+
+## O que é POO?
+
+**Programação Orientada a Objetos (POO)** é um paradigma de programação baseado no conceito de "objetos", que são mapeamentos de elementos do mundo real representados em código.
+
+Esses objetos possuem:
+
+- **Atributos**: características ou dados (estado);
+- **Métodos**: comportamentos ou ações que os objetos podem executar.
+
+---
+
+## 🧩 Elementos da POO
+
+### ✅ Classe
+É o **modelo** ou **molde** para criação de objetos. Define os atributos e métodos comuns a todos os objetos do mesmo tipo.
+
+```python
+class Pessoa:
+    pass  # Classe ainda não implementada
+```
+
+### ✅ Objeto
+É uma **instância** de uma classe — ou seja, um objeto criado com base naquela estrutura.
+
+```python
+p1 = Pessoa()
+```
+
+### ✅ Atributos
+São as **características** dos objetos. Podem ser definidos diretamente ou no construtor.
+
+```python
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+```
+
+### ✅ Métodos
+São as **ações** ou comportamentos da classe. São funções definidas dentro da classe.
+
+```python
+    def falar(self):
+        print(f"{self.nome} está falando")
+```
+
+### ✅ Construtor (`__init__`)
+Método especial que é executado automaticamente quando um objeto é criado.
+
+```python
+    def __init__(self, nome):
+        self.nome = nome
+```
+
+---
+
+## 🏷️ Tipos de Métodos
+
+### 🔹 Método de Instância
+- Recebe o `self` como primeiro parâmetro.
+- Usa ou modifica atributos da instância.
+
+```python
+def mostrar_nome(self):
+    print(self.nome)
+```
+
+### 🔹 Método de Classe (`@classmethod`)
+- Recebe o `cls` como primeiro parâmetro.
+- Atua sobre a classe, não em uma instância específica.
+
+```python
+@classmethod
+def criar_com_desconto(cls, nome, preco, desconto):
+    preco_com_desconto = preco - (preco * desconto / 100)
+    return cls(nome, preco_com_desconto)
+```
+
+### 🔹 Método Estático (`@staticmethod`)
+- Não recebe `self` nem `cls`.
+- É uma função utilitária relacionada à classe.
+
+```python
+@staticmethod
+def converter_real_para_dolar(valor):
+    return valor / 5.2
+```
+
+---
+
+## 🧩 Encapsulamento e Atributos Privados
+
+Por convenção, atributos ou métodos iniciados com `_` (underscore) são considerados **privados** (de uso interno).
+
+```python
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self._preco = preco  # privado por convenção
+```
+
+---
+
+## 🧠 Decorador `@property`
+
+Permite acessar o retorno de um método como se fosse um atributo, sem precisar usar parênteses `()`.
+
+```python
+class Produto:
+    def __init__(self, preco):
+        self._preco = preco
+
+    @property
+    def preco_com_imposto(self):
+        return self._preco * 1.1
+
+produto = Produto(100)
+print(produto.preco_com_imposto)  # 110.0
+```
+
+---
+
+## 🗂️ Serialização com `json.dump()`
+
+Usado para **converter objetos Python em JSON** e gravar em arquivos:
+
+```python
+import json
+
+dados = {"nome": "João", "idade": 30}
+
+with open('dados.json', 'w') as arquivo:
+    json.dump(dados, arquivo)
+```
+
+
+
+
+
+# 🧬 Herança e Polimorfismo em Python
+
+## 🧭 Herança
+
+A **herança** permite que uma classe (filha) herde atributos e métodos de outra classe (pai). Isso promove **reuso de código** e facilita a **organização hierárquica** dos componentes do sistema.
+
+### ✅ Exemplo de Herança
+
+```python
+class Animal:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def emitir_som(self):
+        print("Som do animal")
+
+class Cachorro(Animal):
+    def emitir_som(self):
+        print("Latido")
+
+class Gato(Animal):
+    def emitir_som(self):
+        print("Miado")
+```
+
+### ✅ Uso das classes
+
+```python
+c1 = Cachorro("Rex")
+g1 = Gato("Mimi")
+
+c1.emitir_som()  # Latido
+g1.emitir_som()  # Miado
+```
+
+> A classe `Cachorro` e a `Gato` herdaram o método `emitir_som` de `Animal`, mas **sobrescreveram** esse comportamento com uma implementação própria.
+
+---
+
+## 🧠 Polimorfismo
+
+**Polimorfismo** significa "muitas formas". Em POO, refere-se à capacidade de diferentes classes responderem de maneira diferente ao **mesmo método**.
+
+### ✅ Exemplo com polimorfismo
+
+```python
+animais = [Cachorro("Bolt"), Gato("Luna")]
+
+for animal in animais:
+    animal.emitir_som()
+```
+
+### ✅ Saída
+
+```
+Latido
+Miado
+```
+
+> Mesmo que os objetos estejam em uma lista do tipo `Animal`, cada um executa seu próprio método `emitir_som`. Isso é polimorfismo.
+
+---
+
+## 🔧 `super()` — Acessando métodos da superclasse
+
+Você pode usar `super()` para acessar a implementação da superclasse (classe pai).
+
+```python
+class Cavalo(Animal):
+    def __init__(self, nome, raca):
+        super().__init__(nome)
+        self.raca = raca
+
+    def emitir_som(self):
+        super().emitir_som()
+        print("Relincho")
+```
+
+### ✅ Uso
+
+```python
+c = Cavalo("Spirit", "Mustang")
+c.emitir_som()
+```
+
+### ✅ Saída
+
+```
+Som do animal
+Relincho
+```
+
+---
+
+## 🧩 Conclusão
+
+- **Herança** permite o reuso e especialização de comportamentos.
+- **Polimorfismo** permite tratar objetos de diferentes classes de forma genérica, chamando métodos comuns com resultados específicos.
+- O uso de **`super()`** garante que comportamentos da superclasse possam ser reutilizados ou estendidos.

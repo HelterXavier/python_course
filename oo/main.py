@@ -45,26 +45,25 @@ class Student:
         return f'Sua média final é: {self._calc_grade()} \n {self._aprovado_reprovado()}'
 
 
-
 def add_info_student(student, pdf):
     pdf.set_font("Helvetica", size=14)
 
     pdf.cell(200, 10, text=f'Matrícula: {student.show_infos["inscription"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Nome: {student.show_infos["name"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Curso: {student.show_infos["course"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Matéria: {student.show_infos["subject"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Nota 1: {student.show_infos["grade1"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Nota 2: {student.show_infos["grade2"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Nota do Trabalho: {student.show_infos["assigment"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
     pdf.cell(200, 10, text=f'Média Final: {student.show_infos["media_final"]}')
-    pdf.ln(10)  # Nova linha
+    pdf.ln(10)
 
 
 def save_to_dict(student, file='oo/student_report.pdf'):
@@ -101,4 +100,3 @@ def start_execution():
 
 
 start_execution()
-

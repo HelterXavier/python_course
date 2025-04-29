@@ -1,44 +1,8 @@
 [
     {
-        "name": "Celular Xaiomi Redmi Note 13 Pro 5G",
-        "price": 1856.0,
-        "discount": 0.0,
-        "amount": 1
-    },
-    {
-        "name": "Notebook Lenovo IDEAPAD 1542",
-        "price": 2860.0,
-        "discount": 0.0,
-        "amount": 1
-    },
-    {
-        "name": "Teclado Logitech ABNT2",
-        "price": 82.0,
-        "discount": 3.0,
-        "amount": 10
-    },
-    {
-        "name": "Relógio Digital",
-        "price": 247.42,
-        "discount": 12.0,
-        "amount": 50
-    },
-    {
-        "name": "Garrafa Térmica",
-        "price": 36.4,
-        "discount": 0.0,
+        "name": "Garrafa",
+        "price": 25.0,
+        "discount": 10.0,
         "amount": 2
-    },
-    {
-        "name": "Camiseta",
-        "price": 25.0,
-        "discount": 0.0,
-        "amount": 10
-    },
-    {
-        "name": "Mouse",
-        "price": 25.0,
-        "discount": 5.0,
-        "amount": 10
     }
 ]
