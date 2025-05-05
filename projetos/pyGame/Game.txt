@@ -1,0 +1,10 @@
+Projeto 1 -> GAME
+
+
+Descrição
+
+Desenvolver uma aplicação onde ao ser inicializada solicite ao usuário escolher o nível de dificuldade.
+Logo após deve gerar e aprensentar, de forma aleatória, um cálculo para informar o resltado.
+As operações devem ser somar, diminuir e multiplicar
+Se o usuário acertar a resposta, somará 1 ponto ao seu score.
+Acertando ou errando, ele poderá ou não continuar o jogo.
